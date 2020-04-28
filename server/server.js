@@ -14,9 +14,9 @@ const port = process.env.PORT || 5000;
 
 app.use(express.static(publicPath));
 
-app.get("*", (req, res) => {
-  res.sendFile(path.join(publicPath, "index.html"));
-});
+// app.get("*", (req, res) => {
+//   res.sendFile(path.join(publicPath, "index.html"));
+// });
 
 app.get("/temp", function (req, res, next) {
   res.send(JSON.stringify(temperature));
