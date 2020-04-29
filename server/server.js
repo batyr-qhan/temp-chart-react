@@ -14,15 +14,11 @@ const port = process.env.PORT || 5000;
 
 app.use(express.static(publicPath));
 
-// app.get("*", (req, res) => {
-//   res.sendFile(path.join(publicPath, "index.html"));
-// });
-
-app.get("/temp", function (req, res, next) {
+app.get("/temp", (req, res) => {
   res.send(JSON.stringify(temperature));
 });
 
-app.get("/prec", function (req, res, next) {
+app.get("/prec", (req, res) => {
   res.send(JSON.stringify(precipitation));
 });
 
