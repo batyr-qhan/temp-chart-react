@@ -17,16 +17,17 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(publicPath));
 
+app.get("/temp", (req, res) => {
+  res.send(JSON.stringify(temperature));
+});
+
+app.get("/prec", (req, res) => {
+  res.send(JSON.stringify(precipitation));
+});
+
 app.get("*", (req, res) => {
   res.sendFile(path.join(publicPath, "index.html"));
-});
-
-app.get("/temp", function (req, res, next) {
-  res.send(temperature);
-});
-
-app.get("/prec", function (req, res, next) {
-  res.send(precipitation);
+  console.log("start page");
 });
 
 app.listen(port, () => {
